@@ -2,7 +2,12 @@
     "manifest_version": 3,
     "name": "chrome-extension-template",
     "version": "0.0.1",
-
+    "description": "",
+    "icons": {
+        "16": "16x16.png",
+        "48": "48x48.png",
+        "128": "128x128.png"
+    },
     "action": {
         "default_icon": {
             "16": "16x16.png",
@@ -12,12 +17,9 @@
         "default_title": "Click Me",
         "default_popup": "popup.html"
     },
-    "description": "",
-
     "background": {
         "service_worker": "background.js"
     },
-
     "content_scripts": [
         {
             "matches": [
@@ -30,7 +32,5 @@
     ],
 
     "offline_enabled": true,
-    "permissions": [
-        "*://*.google.*/*"
-    ]
+    "permissions": []
 }

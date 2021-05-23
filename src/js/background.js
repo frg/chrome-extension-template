@@ -7,18 +7,20 @@
  * Note that not all extensions need of a background.js file, but extensions that need to persist data after a popup has closed may need of it.
  */
 
-// A sample object that will be exposed further down and used on popup.js
-const sampleBackgroundGlobal = {
-    message: "This object comes from background.js",
-};
+try {
+    // A sample object that will be exposed further down and used on popup.js
+    const sampleBackgroundGlobal = { // eslint-disable-line no-unused-vars
+        message: "This object comes from background.js",
+    };
 
-// Listen to short lived messages from in-content.js
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    // Listen to short lived messages from in-content.js
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // Perform any ther actions depending on the message
-    console.log("background.js - received message from in-content.js:", message);
-    // Respond message
-    sendResponse("👍");
-});
-
-// Make variables accessible from chrome.extension.getBackgroundPage()
-window.sampleBackgroundGlobal = sampleBackgroundGlobal;
+        console.log("background.js - received message from in-content.js:", message);
+        // Respond message
+        sendResponse("👍");
+    });
+} catch (e) {
+    // Without doing this, a failure on registration will give us no useful message
+    console.error(e);
+}
