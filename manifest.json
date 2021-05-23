@@ -12,7 +12,6 @@
         "default_title": "Click Me",
         "default_popup": "popup.html"
     },
-    "default_locale": "en",
     "description": "",
 
     "background": {
